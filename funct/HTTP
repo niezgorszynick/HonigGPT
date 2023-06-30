@@ -1,0 +1,11 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/', methods=['POST'])
+def handle_challenge():
+    challenge = request.json['challenge']
+    return challenge, 200
+
+if __name__ == '__main__':
+    app.run(port=4000)
